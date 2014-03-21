@@ -26,5 +26,6 @@
 @end
 
 @protocol PixelControllerDelegate <NSObject>
-
+- (void)postArtsDidFinish:(NSDictionary *)resultDict;
+- (void)postArts:(PixelController *)controller didFailWithResultDict:(NSDictionary *)resultDict;
 @end

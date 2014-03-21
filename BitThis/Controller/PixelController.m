@@ -179,12 +179,18 @@ static PixelController *singleton = nil;
                                NSLog(@"Response Dict: %@", responseDict);
                                
                                if(error) {
+                                   if([delegate respondsToSelector:@selector(postArts:didFailWithResultDict:)])
+                                       [delegate performSelector:@selector(postArts:didFailWithResultDict:) withObject:nil];
                                }
                                else {
                                    BOOL isSuccess = [[responseDict objectForKey:@"success"] boolValue];
                                    if(isSuccess) {
+                                       if([delegate respondsToSelector:@selector(postArtsDidFinish:)])
+                                           [delegate performSelector:@selector(postArtsDidFinish:) withObject:responseDict];
                                    }
                                    else {
+                                       if([delegate respondsToSelector:@selector(postArts:didFailWithResultDict:)])
+                                           [delegate performSelector:@selector(postArts:didFailWithResultDict:) withObject:nil];
                                    }
                                }
                            }];

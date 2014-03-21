@@ -14,6 +14,7 @@
     IBOutlet UIImageView *sliderPreview;
     IBOutlet UIView *slidersContainerView;
     IBOutlet UIButton *saveImageButton;
+    IBOutlet UIButton *postImageButton;
 }
 
 @property (strong, nonatomic) NSArray *result;
@@ -23,5 +24,6 @@
 - (IBAction)bSliderValueChanged:(UISlider *)slider;
 
 - (IBAction)saveImageButtonAction:(id)sender;
+- (IBAction)postImageButtonAction:(id)sender;
 
 @end

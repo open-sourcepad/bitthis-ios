@@ -21,6 +21,7 @@
 @property (nonatomic) CGFloat gColorFloat;
 @property (nonatomic) CGFloat bColorFloat;
 @property (nonatomic) BOOL isEditing;
+@property (strong, nonatomic) UIActivityIndicatorView *loadingView;
 @end
 
 @implementation ResultViewController
@@ -55,13 +56,17 @@
     // Disable editing
     slidersContainerView.hidden = YES;
     _isEditing = NO;
-
+    
+    // Loading View
+    _loadingView = [[UIActivityIndicatorView alloc] init];
+    _loadingView.center = self.view.center;
+    _loadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    [_loadingView startAnimating];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self showResult:self.result];
-    [PixelController postArts:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,6 +86,8 @@
     _isEditing = YES;
     // Hide Save Image button
     saveImageButton.hidden = YES;
+    // Hide Post Image button
+    postImageButton.hidden = YES;
 }
 
 - (void)doneAction:(id)sender
@@ -93,6 +100,19 @@
     _isEditing = NO;
     // Show Save Image button
     saveImageButton.hidden = NO;
+    // Show Post Image button
+    postImageButton.hidden = NO;
+}
+
+- (IBAction)saveImageButtonAction:(id)sender
+{
+    
+}
+
+- (IBAction)postImageButtonAction:(id)sender
+{
+    [self.view addSubview:_loadingView];
+    [PixelController postArts:self];
 }
 
 #pragma mark Private Method
@@ -158,6 +178,22 @@
     _bColorFloat = [[_bColorArray objectAtIndex:slider.value] floatValue] / 255.0;
     // Update color preview
     sliderPreview.backgroundColor = [UIColor colorWithRed:_rColorFloat green:_gColorFloat blue:_bColorFloat alpha:1.0];
+}
+
+#pragma mark Pixel Controller Delegate
+- (void)postArtsDidFinish:(NSDictionary *)resultDict
+{
+    [_loadingView removeFromSuperview];
+    [[[UIAlertView alloc] initWithTitle:nil
+                                message:@"Successfully posted!"
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
+}
+
+- (void)postArts:(PixelController *)controller didFailWithResultDict:(NSDictionary *)resultDict
+{
+    [_loadingView removeFromSuperview];
 }
 
 @end
