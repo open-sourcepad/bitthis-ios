@@ -46,4 +46,20 @@
     return newImage;
 }
 
++ (void)saveDataToCSV:(NSString *)dataString
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    //create an array and store result of our search for the documents directory in it
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    //create NSString object, that holds our exact path to the documents directory
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSLog(@"Document Dir: %@",documentsDirectory);
+    
+    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:HEX_CSV_FILENAME]];
+    [fileManager createFileAtPath:fullPath contents:[dataString dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+    
+}
+
 @end

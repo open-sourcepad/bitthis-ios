@@ -7,9 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <RestKit/RestKit.h>
+
+@protocol PixelControllerDelegate;
 
 @interface PixelController : NSObject
+{
+    @private
+    id <PixelControllerDelegate> delegate;
+}
+
+@property (strong, nonatomic) id <PixelControllerDelegate> delegate;
+
++ (void)postArts:(id <PixelControllerDelegate>)delegate;
 
 + (NSArray*)getRGBAsFromImage:(UIImage*)image atX:(int)xx andY:(int)yy count:(int)count;
+
+@end
+
+@protocol PixelControllerDelegate <NSObject>
 
 @end
