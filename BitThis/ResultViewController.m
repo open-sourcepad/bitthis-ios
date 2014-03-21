@@ -115,6 +115,11 @@
     [PixelController postArts:self];
 }
 
+- (IBAction)saveImageButtonAction:(id)sender
+{
+    
+}
+
 #pragma mark Private Method
 - (void)showResult:(NSArray *)result
 {
