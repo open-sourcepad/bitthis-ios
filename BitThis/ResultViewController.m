@@ -115,11 +115,6 @@
     [PixelController postArts:self];
 }
 
-- (IBAction)saveImageButtonAction:(id)sender
-{
-    
-}
-
 #pragma mark Private Method
 - (void)showResult:(NSArray *)result
 {
@@ -189,11 +184,14 @@
 - (void)postArtsDidFinish:(NSDictionary *)resultDict
 {
     [_loadingView removeFromSuperview];
-    [[[UIAlertView alloc] initWithTitle:nil
-                                message:@"Successfully posted!"
-                               delegate:nil
-                      cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil] show];
+    // Open in Safari
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[resultDict objectForKey:@"url"]]];
+    
+//    [[[UIAlertView alloc] initWithTitle:nil
+//                                message:@"Successfully posted!"
+//                               delegate:nil
+//                      cancelButtonTitle:@"OK"
+//                      otherButtonTitles:nil] show];
 }
 
 - (void)postArts:(PixelController *)controller didFailWithResultDict:(NSDictionary *)resultDict
