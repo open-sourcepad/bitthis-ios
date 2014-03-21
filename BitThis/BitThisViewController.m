@@ -105,6 +105,8 @@
     if(buttonIndex==0) {
         // Take a photo
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        imagePicker.showsCameraControls = YES;
+        imagePicker.allowsEditing = YES;
     }
     else if(buttonIndex==1) {
         // Choose from Library
@@ -118,7 +120,7 @@
 #pragma mark Image Picker Controller Delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *image = (picker.sourceType==UIImagePickerControllerSourceTypeCamera)?[info objectForKey:UIImagePickerControllerEditedImage]:[info objectForKey:UIImagePickerControllerOriginalImage];
     imageView.image = image;
     
     [self dismissViewControllerAnimated:YES completion:nil];
