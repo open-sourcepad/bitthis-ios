@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BitThisViewController">
             <connections>
-                <outlet property="convertButton" destination="Swa-hU-bZ9" id="ge4-Xd-z64"/>
                 <outlet property="imageView" destination="FCl-wr-RXA" id="iWE-tO-KMB"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -22,12 +21,21 @@
                     <color key="backgroundColor" red="0.91764705879999997" green="0.89019607840000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swa-hU-bZ9">
-                    <rect key="frame" x="81" y="409" width="158" height="30"/>
+                    <rect key="frame" x="163" y="409" width="137" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Convert"/>
                     <connections>
                         <action selector="convertButtonAction:" destination="-1" eventType="touchUpInside" id="7JT-Nf-eaS"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qND-Mr-nbn">
+                    <rect key="frame" x="18" y="409" width="137" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Choose Image"/>
+                    <connections>
+                        <action selector="chooseImageButtonAction:" destination="-1" eventType="touchUpInside" id="gWX-Cz-8iw"/>
                     </connections>
                 </button>
             </subviews>

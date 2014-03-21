@@ -11,5 +11,7 @@
 @interface Utility : NSObject
 
 + (NSString *)getHexStringForColor:(UIColor *)color;
++ (UIColor *)getColorFromHexString:(NSString *)colorHexString;
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 
 @end

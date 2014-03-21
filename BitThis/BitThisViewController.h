@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BitThisViewController : UIViewController
+@interface BitThisViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     IBOutlet UIImageView *imageView;
-    IBOutlet UIButton *convertButton;
 }
 
 - (IBAction)convertButtonAction:(id)sender;
+- (IBAction)chooseImageButtonAction:(id)sender;
 
 @end

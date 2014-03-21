@@ -7,8 +7,11 @@
 //
 
 #import "BitThisViewController.h"
+#import "ResultViewController.h"
 #import "PixelController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "Constants.h"
+#import "Utility.h"
 
 @interface BitThisViewController ()
 
@@ -42,8 +45,38 @@
 #pragma mark Button Actions
 - (IBAction)convertButtonAction:(id)sender
 {
-    [PixelController getRGBAsFromImage:imageView.image atX:0 andY:0 count:16];
+    int count = IMAGE_DIMENSION;
+    
+    UIImage *imageToConvert = imageView.image;
+    NSArray *result = [PixelController getRGBAsFromImage:imageToConvert atX:0 andY:0 count:count];
+    
+    ResultViewController *resultVC = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
+    resultVC.result = result;
+    [self.navigationController presentViewController:resultVC animated:YES completion:nil];
+    resultVC = nil;    
 }
 
+- (IBAction)chooseImageButtonAction:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentViewController:imagePicker animated:YES completion:nil];
+    imagePicker = nil;
+}
+
+#pragma mark Image Picker Controller Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    imageView.image = [Utility imageWithImage:image scaledToSize:CGSizeMake(IMAGE_DIMENSION, IMAGE_DIMENSION)];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

@@ -33,6 +33,9 @@
 		E89F17C618DC150400FAC31C /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = E89F17C518DC150400FAC31C /* test.png */; };
 		E89F17C818DC1C9C00FAC31C /* test_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = E89F17C718DC1C9C00FAC31C /* test_16x16.png */; };
 		E89F17CD18DC26E500FAC31C /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = E89F17CC18DC26E500FAC31C /* Utility.m */; };
+		E89F17D118DC30AC00FAC31C /* test_50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = E89F17D018DC30AC00FAC31C /* test_50x50.png */; };
+		E89F17D518DC30FA00FAC31C /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89F17D318DC30FA00FAC31C /* ResultViewController.m */; };
+		E89F17D618DC30FA00FAC31C /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89F17D418DC30FA00FAC31C /* ResultViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +117,10 @@
 		E89F17C718DC1C9C00FAC31C /* test_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_16x16.png; path = Image/test_16x16.png; sourceTree = "<group>"; };
 		E89F17CB18DC26E500FAC31C /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		E89F17CC18DC26E500FAC31C /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		E89F17D018DC30AC00FAC31C /* test_50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_50x50.png; path = Image/test_50x50.png; sourceTree = "<group>"; };
+		E89F17D218DC30FA00FAC31C /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		E89F17D318DC30FA00FAC31C /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		E89F17D418DC30FA00FAC31C /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +259,8 @@
 			children = (
 				E86C677D18DC0DA2006B45AF /* BitThisViewController.h */,
 				E86C677E18DC0DA2006B45AF /* BitThisViewController.m */,
+				E89F17D218DC30FA00FAC31C /* ResultViewController.h */,
+				E89F17D318DC30FA00FAC31C /* ResultViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -268,6 +277,7 @@
 		E86C677B18DC0D1C006B45AF /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				E89F17D018DC30AC00FAC31C /* test_50x50.png */,
 				E89F17C718DC1C9C00FAC31C /* test_16x16.png */,
 				E89F17C518DC150400FAC31C /* test.png */,
 			);
@@ -278,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				E86C677F18DC0DA2006B45AF /* BitThisViewController.xib */,
+				E89F17D418DC30FA00FAC31C /* ResultViewController.xib */,
 			);
 			name = "Nib Files";
 			sourceTree = "<group>";
@@ -409,8 +420,10 @@
 			files = (
 				E89F17C618DC150400FAC31C /* test.png in Resources */,
 				E86C674C18DC0C3F006B45AF /* InfoPlist.strings in Resources */,
+				E89F17D618DC30FA00FAC31C /* ResultViewController.xib in Resources */,
 				E89F17C818DC1C9C00FAC31C /* test_16x16.png in Resources */,
 				E86C678118DC0DA2006B45AF /* BitThisViewController.xib in Resources */,
+				E89F17D118DC30AC00FAC31C /* test_50x50.png in Resources */,
 				E86C675718DC0C3F006B45AF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E86C678018DC0DA2006B45AF /* BitThisViewController.m in Sources */,
+				E89F17D518DC30FA00FAC31C /* ResultViewController.m in Sources */,
 				E86C675218DC0C3F006B45AF /* BitThisAppDelegate.m in Sources */,
 				E86C675518DC0C3F006B45AF /* BitThis.xcdatamodeld in Sources */,
 				E89F17C418DC14E600FAC31C /* PixelController.m in Sources */,

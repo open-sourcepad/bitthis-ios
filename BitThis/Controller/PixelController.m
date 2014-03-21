@@ -15,6 +15,7 @@
 + (NSArray*)getRGBAsFromImage:(UIImage*)image atX:(int)xx andY:(int)yy count:(int)count
 {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:count];
+    NSString *resultString = @"";
     
     // First get the image into your data buffer
     CGImageRef imageRef = [image CGImage];
@@ -38,6 +39,7 @@
         
         NSMutableArray *rowResult = [NSMutableArray arrayWithCapacity:count];
         int byteIndex = (int)((bytesPerRow * jj) + xx * bytesPerPixel);
+        NSString *rowResultString = @"";
         
         for (int ii = 0 ; ii < count ; ++ii)
         {
@@ -53,14 +55,24 @@
             // Convert to Hex color
             NSString *hexString = [Utility getHexStringForColor:acolor];
             [rowResult addObject:hexString];
+            
+            NSString *colorString = [NSString stringWithFormat:@"%d,%d,%d", (int)(red*255), (int)(green*255), (int)(blue*255)];
+            if(rowResultString.length==0)
+                rowResultString = [NSString stringWithFormat:@"\"%@\"",colorString];
+            else
+                rowResultString = [NSString stringWithFormat:@"%@,\"%@\"", rowResultString, colorString];
         }
+        // Add new space
+        rowResultString = [NSString stringWithFormat:@"%@\n",rowResultString];
+        resultString = [NSString stringWithFormat:@"%@%@", resultString, rowResultString];
+        
         [result addObject:rowResult];
         rowResult = nil;
     }
     
-    free(rawData);
+    NSLog(@"%@", resultString);
     
-    NSLog(@"Result: %@", result);
+    free(rawData);
     
     return result;
 }
