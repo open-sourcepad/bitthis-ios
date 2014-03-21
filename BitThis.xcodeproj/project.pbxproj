@@ -32,6 +32,7 @@
 		E89F17C418DC14E600FAC31C /* PixelController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89F17C318DC14E600FAC31C /* PixelController.m */; };
 		E89F17C618DC150400FAC31C /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = E89F17C518DC150400FAC31C /* test.png */; };
 		E89F17C818DC1C9C00FAC31C /* test_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = E89F17C718DC1C9C00FAC31C /* test_16x16.png */; };
+		E89F17CD18DC26E500FAC31C /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = E89F17CC18DC26E500FAC31C /* Utility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		E89F17C318DC14E600FAC31C /* PixelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PixelController.m; path = Controller/PixelController.m; sourceTree = "<group>"; };
 		E89F17C518DC150400FAC31C /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test.png; path = Image/test.png; sourceTree = "<group>"; };
 		E89F17C718DC1C9C00FAC31C /* test_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_16x16.png; path = Image/test_16x16.png; sourceTree = "<group>"; };
+		E89F17CB18DC26E500FAC31C /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		E89F17CC18DC26E500FAC31C /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				E86C678318DC0E0C006B45AF /* Constants.h */,
+				E89F17CB18DC26E500FAC31C /* Utility.h */,
+				E89F17CC18DC26E500FAC31C /* Utility.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -429,6 +434,7 @@
 				E86C675218DC0C3F006B45AF /* BitThisAppDelegate.m in Sources */,
 				E86C675518DC0C3F006B45AF /* BitThis.xcdatamodeld in Sources */,
 				E89F17C418DC14E600FAC31C /* PixelController.m in Sources */,
+				E89F17CD18DC26E500FAC31C /* Utility.m in Sources */,
 				E86C674E18DC0C3F006B45AF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

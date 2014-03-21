@@ -7,6 +7,7 @@
 //
 
 #import "PixelController.h"
+#import "Utility.h"
 
 @implementation PixelController
 
@@ -48,8 +49,10 @@
             byteIndex += 4;
             
             UIColor *acolor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
-//            [result addObject:acolor];
-            [rowResult addObject:acolor];
+            
+            // Convert to Hex color
+            NSString *hexString = [Utility getHexStringForColor:acolor];
+            [rowResult addObject:hexString];
         }
         [result addObject:rowResult];
         rowResult = nil;
