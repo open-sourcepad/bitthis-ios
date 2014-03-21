@@ -33,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    imageView.image = [UIImage imageNamed:@"test_16x16.png"];
+    imageView.image = [UIImage imageNamed:@"test.png"];
 
     // Loading View
     _loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
