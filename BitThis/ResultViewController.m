@@ -12,7 +12,7 @@
 #import "Constants.h"
 
 @interface ResultViewController ()
-
+@property (strong, nonatomic) UIBarButtonItem *rightBarButton;
 @end
 
 @implementation ResultViewController
@@ -33,6 +33,9 @@
     
     resultView.layer.borderWidth = 1.0;
     resultView.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    _rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editAction:)];
+    self.navigationItem.rightBarButtonItem = _rightBarButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -47,9 +50,18 @@
 }
 
 #pragma mark Button Actions
-- (IBAction)closeButtonAction:(id)sender
+- (void)editAction:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    _rightBarButton = nil;
+    _rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
+    self.navigationItem.rightBarButtonItem = _rightBarButton;
+}
+
+- (void)doneAction:(id)sender
+{
+    _rightBarButton = nil;
+    _rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editAction:)];
+    self.navigationItem.rightBarButtonItem = _rightBarButton;
 }
 
 #pragma mark Private Method
@@ -67,14 +79,28 @@
         for(int row=0; row<count; row++) {
             UIImageView *squareImageView = [[UIImageView alloc] initWithFrame:CGRectMake(xPos, yPos, squareDimension, squareDimension)];
             squareImageView.backgroundColor = [Utility getColorFromHexString:[[result objectAtIndex:col] objectAtIndex:row]];
+            squareImageView.userInteractionEnabled = YES;
             [resultView addSubview:squareImageView];
-            squareImageView = nil;
+            
+            UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedSquare:)];
+            [squareImageView addGestureRecognizer:tapGestureRecognizer];
+            tapGestureRecognizer = nil;
             
             xPos += squareDimension;
+            squareImageView = nil;
         }
         xPos = 0.0;
         yPos += squareDimension;
     }
 }
 
+#pragma mark Gesture Recognizer
+- (void)tappedSquare:(UIGestureRecognizer *)recognizer
+{
+    UIView* view = recognizer.view;
+    
+    view.backgroundColor = [UIColor yellowColor];
+//    CGPoint loc = [gestureRecognizer locationInView:view];
+//    UIView* subview = [view hitTest:loc withEvent:nil];
+}
 @end

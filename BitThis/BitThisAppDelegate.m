@@ -7,7 +7,7 @@
 //
 
 #import "BitThisAppDelegate.h"
-#import <RestKit/RestKit.h>
+#import "Constants.h"
 
 @implementation BitThisAppDelegate
 
@@ -21,6 +21,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    // --------------------------
+    // RESTKIT
+    // --------------------------
+    _apiObjMgr = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:API_BASE_URL]];
     
     _bitThisVC = [[BitThisViewController alloc] initWithNibName:@"BitThisViewController" bundle:nil];
     _navController = [[UINavigationController alloc] initWithRootViewController:_bitThisVC];

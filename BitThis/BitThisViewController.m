@@ -52,8 +52,9 @@
     
     ResultViewController *resultVC = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
     resultVC.result = result;
-    [self.navigationController presentViewController:resultVC animated:YES completion:nil];
-    resultVC = nil;    
+//    [self.navigationController presentViewController:resultVC animated:YES completion:nil];
+    [self.navigationController pushViewController:resultVC animated:YES];
+    resultVC = nil;
 }
 
 - (IBAction)chooseImageButtonAction:(id)sender

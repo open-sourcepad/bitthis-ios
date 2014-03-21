@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 #import "BitThisViewController.h"
 
 @interface BitThisAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) RKObjectManager *apiObjMgr;
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navController;
