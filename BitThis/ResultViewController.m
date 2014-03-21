@@ -14,6 +14,13 @@
 
 @interface ResultViewController () <PixelControllerDelegate>
 @property (strong, nonatomic) UIBarButtonItem *rightBarButton;
+@property (strong, nonatomic) NSArray *rColorArray;
+@property (strong, nonatomic) NSArray *gColorArray;
+@property (strong, nonatomic) NSArray *bColorArray;
+@property (nonatomic) CGFloat rColorFloat;
+@property (nonatomic) CGFloat gColorFloat;
+@property (nonatomic) CGFloat bColorFloat;
+@property (nonatomic) BOOL isEditing;
 @end
 
 @implementation ResultViewController
@@ -37,6 +44,19 @@
     
     _rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editAction:)];
     self.navigationItem.rightBarButtonItem = _rightBarButton;
+    
+    _rColorArray = [NSArray arrayWithObjects:@"0", @"32", @"64", @"96", @"128", @"160", @"196", @"224", @"255", nil];
+    _gColorArray = [NSArray arrayWithObjects:@"0", @"32", @"64", @"96", @"128", @"160", @"196", @"224", @"255", nil];
+    _bColorArray = [NSArray arrayWithObjects:@"0", @"64", @"128", @"192", @"255", nil];
+    _rColorFloat = 1.0;
+    _gColorFloat = 1.0;
+    _bColorFloat = 1.0;
+    
+    // Disable editing
+    slidersContainerView.userInteractionEnabled = NO;
+    slidersContainerView.alpha = 0.5;
+    _isEditing = NO;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -57,6 +77,10 @@
     _rightBarButton = nil;
     _rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
     self.navigationItem.rightBarButtonItem = _rightBarButton;
+    // Enable editing
+    slidersContainerView.userInteractionEnabled = YES;
+    slidersContainerView.alpha = 1.0;
+    _isEditing = YES;
 }
 
 - (void)doneAction:(id)sender
@@ -64,6 +88,10 @@
     _rightBarButton = nil;
     _rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editAction:)];
     self.navigationItem.rightBarButtonItem = _rightBarButton;
+    // Disable editing
+    slidersContainerView.userInteractionEnabled = NO;
+    slidersContainerView.alpha = 0.5;
+    _isEditing = NO;
 }
 
 #pragma mark Private Method
@@ -99,10 +127,36 @@
 #pragma mark Gesture Recognizer
 - (void)tappedSquare:(UIGestureRecognizer *)recognizer
 {
+    if (!_isEditing) return;
+    
     UIView* view = recognizer.view;
     
-    view.backgroundColor = [UIColor yellowColor];
+    view.backgroundColor = [UIColor colorWithRed:_rColorFloat green:_gColorFloat blue:_bColorFloat alpha:1.0];
 //    CGPoint loc = [gestureRecognizer locationInView:view];
 //    UIView* subview = [view hitTest:loc withEvent:nil];
 }
+
+
+#pragma mark - Slider actions
+- (IBAction)rSliderValueChanged:(UISlider *)slider
+{
+    _rColorFloat = [[_rColorArray objectAtIndex:slider.value] floatValue] / 255.0;
+    // Update color preview
+    sliderPreview.backgroundColor = [UIColor colorWithRed:_rColorFloat green:_gColorFloat blue:_bColorFloat alpha:1.0];
+}
+
+- (IBAction)gSliderValueChanged:(UISlider *)slider
+{
+    _gColorFloat = [[_gColorArray objectAtIndex:slider.value] floatValue] / 255.0;
+    // Update color preview
+    sliderPreview.backgroundColor = [UIColor colorWithRed:_rColorFloat green:_gColorFloat blue:_bColorFloat alpha:1.0];
+}
+
+- (IBAction)bSliderValueChanged:(UISlider *)slider
+{
+    _bColorFloat = [[_bColorArray objectAtIndex:slider.value] floatValue] / 255.0;
+    // Update color preview
+    sliderPreview.backgroundColor = [UIColor colorWithRed:_rColorFloat green:_gColorFloat blue:_bColorFloat alpha:1.0];
+}
+
 @end

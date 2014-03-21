@@ -11,8 +11,14 @@
 @interface ResultViewController : UIViewController
 {
     IBOutlet UIView *resultView;
+    IBOutlet UIImageView *sliderPreview;
+    IBOutlet UIView *slidersContainerView;
 }
 
 @property (strong, nonatomic) NSArray *result;
+
+- (IBAction)rSliderValueChanged:(UISlider *)slider;
+- (IBAction)gSliderValueChanged:(UISlider *)slider;
+- (IBAction)bSliderValueChanged:(UISlider *)slider;
 
 @end
