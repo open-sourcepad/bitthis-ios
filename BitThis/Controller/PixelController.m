@@ -56,11 +56,10 @@
             NSString *hexString = [Utility getHexStringForColor:acolor];
             [rowResult addObject:hexString];
             
-            NSString *colorString = [NSString stringWithFormat:@"%d,%d,%d", (int)(red*255), (int)(green*255), (int)(blue*255)];
             if(rowResultString.length==0)
-                rowResultString = [NSString stringWithFormat:@"\"%@\"",colorString];
+                rowResultString = [NSString stringWithFormat:@"\"%@\"",hexString];
             else
-                rowResultString = [NSString stringWithFormat:@"%@,\"%@\"", rowResultString, colorString];
+                rowResultString = [NSString stringWithFormat:@"%@,\"%@\"", rowResultString, hexString];
         }
         // Add new space
         rowResultString = [NSString stringWithFormat:@"%@\n",rowResultString];

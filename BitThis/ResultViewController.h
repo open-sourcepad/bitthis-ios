@@ -15,6 +15,4 @@
 
 @property (strong, nonatomic) NSArray *result;
 
-- (IBAction)closeButtonAction:(id)sender;
-
 @end
