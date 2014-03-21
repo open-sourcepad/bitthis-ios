@@ -57,6 +57,7 @@ static PixelController *singleton = nil;
         int byteIndex = (int)((bytesPerRow * jj) + xx * bytesPerPixel);
         NSString *rowResultString = @"";
         
+        UIColor *prevColor = nil;
         for (int ii = 0 ; ii < count ; ++ii)
         {
 //            CGFloat red   = (rawData[byteIndex]     * 1.0) / 255.0;
@@ -76,7 +77,16 @@ static PixelController *singleton = nil;
             
             byteIndex += 4;
             
-            UIColor *acolor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+            //-- Skip if not multiple of 4
+            UIColor *acolor = nil;
+            int modulo = ii % 4;
+            if (modulo > 0) {
+                acolor = prevColor;
+            }
+            else {
+                acolor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+                prevColor = acolor;
+            }
             
             // Convert to Hex color
             NSString *hexString = [Utility getHexStringForColor:acolor];

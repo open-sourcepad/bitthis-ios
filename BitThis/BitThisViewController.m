@@ -14,6 +14,7 @@
 #import "Utility.h"
 
 @interface BitThisViewController ()
+@property (strong, nonatomic) UIActivityIndicatorView *loadingView;
 
 @end
 
@@ -34,6 +35,12 @@
     // Do any additional setup after loading the view from its nib.
     
     imageView.image = [UIImage imageNamed:@"test_16x16.png"];
+
+    // Loading View
+    _loadingView = [[UIActivityIndicatorView alloc] init];
+    _loadingView.center = self.view.center;
+    _loadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    [_loadingView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,9 +49,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [_loadingView removeFromSuperview];
+}
+
 #pragma mark Button Actions
 - (IBAction)convertButtonAction:(id)sender
 {
+    // Show activity icon
+    [self.view addSubview:_loadingView];
+
     int count = IMAGE_DIMENSION;
     
     UIImage *imageToConvert = [Utility imageWithImage:imageView.image scaledToSize:CGSizeMake(IMAGE_DIMENSION, IMAGE_DIMENSION)];
@@ -54,6 +69,7 @@
     resultVC.result = result;
     [self.navigationController pushViewController:resultVC animated:YES];
     resultVC = nil;
+    
 }
 
 - (IBAction)chooseImageButtonAction:(id)sender
