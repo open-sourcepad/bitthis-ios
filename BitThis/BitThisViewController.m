@@ -13,9 +13,8 @@
 #import "Constants.h"
 #import "Utility.h"
 
-@interface BitThisViewController ()
+@interface BitThisViewController () <UIActionSheetDelegate>
 @property (strong, nonatomic) UIActivityIndicatorView *loadingView;
-
 @end
 
 @implementation BitThisViewController
@@ -74,9 +73,31 @@
 
 - (IBAction)chooseImageButtonAction:(id)sender
 {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Take a Photo", @"Choose from Library", nil];
+    
+    [actionSheet showInView:self.view];
+    actionSheet = nil;
+}
+
+#pragma mark Action Sheet Delegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
-    [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    
+    if(buttonIndex==0) {
+        // Take a photo
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else if(buttonIndex==1) {
+        // Choose from Library
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
     [self presentViewController:imagePicker animated:YES completion:nil];
     imagePicker = nil;
 }

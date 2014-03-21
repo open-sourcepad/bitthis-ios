@@ -115,29 +115,6 @@ static PixelController *singleton = nil;
 
 + (void)postArts:(id <PixelControllerDelegate>)delegate
 {
-//    RKObjectManager *objMgr = ((BitThisAppDelegate *)[[UIApplication sharedApplication] delegate]).apiObjMgr;
-//    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-//    
-//    [objMgr setAcceptHeaderWithMIMEType:API_HEADER];
-//    [objMgr.HTTPClient postPath:API_POST_ARTS
-//                     parameters:params
-//                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                            NSError *error;
-//                            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:operation.responseData options:0 error:&error];
-//                            NSLog(@"Response: %@", responseDict);
-//                            BOOL isSuccess = [[responseDict objectForKey:@"success"] boolValue];
-//                            
-//                            if(isSuccess) {
-//                                
-//                            }
-//                            else {
-//                                
-//                            }
-//                        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                            NSLog(@"Error: %@", error.localizedDescription);
-//                            
-//                        }];
-    
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    @"bitthisapp@gmail.com", @"google_username",
                                    @"bitthis123", @"google_password",
