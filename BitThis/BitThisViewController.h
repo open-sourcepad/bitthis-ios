@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface BitThisViewController : UIViewController
+{
+    IBOutlet UIImageView *imageView;
+    IBOutlet UIButton *convertButton;
+}
+
+- (IBAction)convertButtonAction:(id)sender;
 
 @end

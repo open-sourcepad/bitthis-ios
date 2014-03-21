@@ -29,6 +29,9 @@
 		E89F17BD18DC134400FAC31C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89F17BC18DC134400FAC31C /* MobileCoreServices.framework */; };
 		E89F17BF18DC134A00FAC31C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89F17BE18DC134A00FAC31C /* Security.framework */; };
 		E89F17C118DC135200FAC31C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89F17C018DC135200FAC31C /* SystemConfiguration.framework */; };
+		E89F17C418DC14E600FAC31C /* PixelController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89F17C318DC14E600FAC31C /* PixelController.m */; };
+		E89F17C618DC150400FAC31C /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = E89F17C518DC150400FAC31C /* test.png */; };
+		E89F17C818DC1C9C00FAC31C /* test_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = E89F17C718DC1C9C00FAC31C /* test_16x16.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +107,10 @@
 		E89F17BC18DC134400FAC31C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E89F17BE18DC134A00FAC31C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E89F17C018DC135200FAC31C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E89F17C218DC14E600FAC31C /* PixelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PixelController.h; path = Controller/PixelController.h; sourceTree = "<group>"; };
+		E89F17C318DC14E600FAC31C /* PixelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PixelController.m; path = Controller/PixelController.m; sourceTree = "<group>"; };
+		E89F17C518DC150400FAC31C /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test.png; path = Image/test.png; sourceTree = "<group>"; };
+		E89F17C718DC1C9C00FAC31C /* test_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_16x16.png; path = Image/test_16x16.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +254,8 @@
 		E86C677A18DC0D04006B45AF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E89F17C218DC14E600FAC31C /* PixelController.h */,
+				E89F17C318DC14E600FAC31C /* PixelController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -254,6 +263,8 @@
 		E86C677B18DC0D1C006B45AF /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				E89F17C718DC1C9C00FAC31C /* test_16x16.png */,
+				E89F17C518DC150400FAC31C /* test.png */,
 			);
 			name = Image;
 			sourceTree = "<group>";
@@ -391,7 +402,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E89F17C618DC150400FAC31C /* test.png in Resources */,
 				E86C674C18DC0C3F006B45AF /* InfoPlist.strings in Resources */,
+				E89F17C818DC1C9C00FAC31C /* test_16x16.png in Resources */,
 				E86C678118DC0DA2006B45AF /* BitThisViewController.xib in Resources */,
 				E86C675718DC0C3F006B45AF /* Images.xcassets in Resources */,
 			);
@@ -415,6 +428,7 @@
 				E86C678018DC0DA2006B45AF /* BitThisViewController.m in Sources */,
 				E86C675218DC0C3F006B45AF /* BitThisAppDelegate.m in Sources */,
 				E86C675518DC0C3F006B45AF /* BitThis.xcdatamodeld in Sources */,
+				E89F17C418DC14E600FAC31C /* PixelController.m in Sources */,
 				E86C674E18DC0C3F006B45AF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
