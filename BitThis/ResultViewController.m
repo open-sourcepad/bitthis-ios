@@ -52,8 +52,7 @@
     _bColorFloat = 1.0;
     
     // Disable editing
-    slidersContainerView.userInteractionEnabled = NO;
-    slidersContainerView.alpha = 0.5;
+    slidersContainerView.hidden = YES;
     _isEditing = NO;
 
 }
@@ -76,9 +75,10 @@
     _rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
     self.navigationItem.rightBarButtonItem = _rightBarButton;
     // Enable editing
-    slidersContainerView.userInteractionEnabled = YES;
-    slidersContainerView.alpha = 1.0;
+    slidersContainerView.hidden = NO;
     _isEditing = YES;
+    // Hide Save Image button
+    saveImageButton.hidden = YES;
 }
 
 - (void)doneAction:(id)sender
@@ -87,9 +87,10 @@
     _rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editAction:)];
     self.navigationItem.rightBarButtonItem = _rightBarButton;
     // Disable editing
-    slidersContainerView.userInteractionEnabled = NO;
-    slidersContainerView.alpha = 0.5;
+    slidersContainerView.hidden = YES;
     _isEditing = NO;
+    // Show Save Image button
+    saveImageButton.hidden = NO;
 }
 
 #pragma mark Private Method

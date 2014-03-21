@@ -13,6 +13,7 @@
     IBOutlet UIView *resultView;
     IBOutlet UIImageView *sliderPreview;
     IBOutlet UIView *slidersContainerView;
+    IBOutlet UIButton *saveImageButton;
 }
 
 @property (strong, nonatomic) NSArray *result;
@@ -20,5 +21,7 @@
 - (IBAction)rSliderValueChanged:(UISlider *)slider;
 - (IBAction)gSliderValueChanged:(UISlider *)slider;
 - (IBAction)bSliderValueChanged:(UISlider *)slider;
+
+- (IBAction)saveImageButtonAction:(id)sender;
 
 @end
