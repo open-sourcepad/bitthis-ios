@@ -7,11 +7,12 @@
 //
 
 #import "ResultViewController.h"
+#import "PixelController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Utility.h"
 #import "Constants.h"
 
-@interface ResultViewController ()
+@interface ResultViewController () <PixelControllerDelegate>
 @property (strong, nonatomic) UIBarButtonItem *rightBarButton;
 @property (strong, nonatomic) NSArray *rColorArray;
 @property (strong, nonatomic) NSArray *gColorArray;
@@ -60,6 +61,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self showResult:self.result];
+    [PixelController postArts:self];
 }
 
 - (void)didReceiveMemoryWarning

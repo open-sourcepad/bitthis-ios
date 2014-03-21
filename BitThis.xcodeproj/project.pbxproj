@@ -573,7 +573,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jonathan Andy Lim (FCSXVH6MUQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nikki Fernandez (B54CC8BT4X)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BitThis/BitThis-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -587,7 +587,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2589630A-530D-4C9A-A1A7-4205FEFB0657";
+				PROVISIONING_PROFILE = "0DF981D2-A797-49EE-BC97-CBCEC5E2E37B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -597,7 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jonathan Andy Lim (FCSXVH6MUQ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nikki Fernandez (B54CC8BT4X)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BitThis/BitThis-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -611,7 +611,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2589630A-530D-4C9A-A1A7-4205FEFB0657";
+				PROVISIONING_PROFILE = "0DF981D2-A797-49EE-BC97-CBCEC5E2E37B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

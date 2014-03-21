@@ -10,4 +10,8 @@
 
 #define IMAGE_DIMENSION     16.0
 
-#define API_BASE_URL    @""
+#define API_BASE_URL        @"http://bitthis-api.herokuapp.com"
+#define API_POST_ARTS       @"/api/arts"
+#define API_HEADER          @"application/vnd.bitthis+json;version=1"
+
+#define HEX_CSV_FILENAME    @"hexdata.csv"
