@@ -14,5 +14,7 @@
 + (UIColor *)getColorFromHexString:(NSString *)colorHexString;
 + (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 + (void)saveDataToCSV:(NSString *)dataString;
+// Save to camera roll
++ (BOOL)saveImageToCameraRoll:(UIImage *)image;
 
 @end

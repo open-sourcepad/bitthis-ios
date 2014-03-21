@@ -62,4 +62,21 @@
     
 }
 
+#pragma mark Save to Camera Roll
++ (BOOL)saveImageToCameraRoll:(UIImage *)image
+{
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    return YES;
+}
+
++ (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error != NULL) {
+        NSLog(@"Error saving to camera roll");
+    }
+    else  {
+        NSLog(@"Image saved successfully");
+    }
+}
+
 @end
