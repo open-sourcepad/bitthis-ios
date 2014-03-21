@@ -106,18 +106,25 @@
 
 - (IBAction)saveImageButtonAction:(id)sender
 {
+    // Create quotiful image
+    UIImage *resultImage = [self createResultImage];
     
+    // Save quotiful to camera roll
+    if ([Utility saveImageToCameraRoll:resultImage]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:@"Saved image successfuly."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+
 }
 
 - (IBAction)postImageButtonAction:(id)sender
 {
     [self.view addSubview:_loadingView];
     [PixelController postArts:self];
-}
-
-- (IBAction)saveImageButtonAction:(id)sender
-{
-    
 }
 
 #pragma mark Private Method
@@ -148,6 +155,24 @@
         xPos = 0.0;
         yPos += squareDimension;
     }
+}
+
+- (UIImage *)createResultImage
+{
+    // Reference: http://stackoverflow.com/questions/4334233/how-to-capture-uiview-to-uiimage-without-loss-of-quality-on-retina-display
+    
+    // Convert to image
+    CGRect rect = CGRectMake(0, 0, SAVE_IMAGE_OUTPUT_WIDTH, SAVE_IMAGE_OUTPUT_HEIGHT);
+    UIGraphicsBeginImageContext(rect.size);
+    //UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0.0);
+    UIGraphicsBeginImageContextWithOptions(rect.size, resultView.opaque, 0.0);
+    [resultView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *imageCaptureRect = UIGraphicsGetImageFromCurrentImageContext();
+    imageCaptureRect=[UIImage imageWithCGImage:[imageCaptureRect CGImage] scale:1.0 orientation:UIImageOrientationUp];
+    UIGraphicsEndImageContext();
+    
+    return imageCaptureRect;
 }
 
 #pragma mark Gesture Recognizer

@@ -63,9 +63,9 @@ static PixelController *singleton = nil;
 //            CGFloat green = (rawData[byteIndex + 1] * 1.0) / 255.0;
 //            CGFloat blue  = (rawData[byteIndex + 2] * 1.0) / 255.0;
             
-            int r = (int)((rawData[byteIndex]     * 1.0)/32) * 32;
-            int g = (int)((rawData[byteIndex + 1] * 1.0)/32) * 32;
-            int b = (int)((rawData[byteIndex + 2] * 1.0)/64) * 64;
+            int r = (int)((rawData[byteIndex]     * 1.0)/28) * 28;
+            int g = (int)((rawData[byteIndex + 1] * 1.0)/28) * 28;
+            int b = (int)((rawData[byteIndex + 2] * 1.0)/51) * 51;
             
             CGFloat red = r / 255.0;
             CGFloat green = g / 255.0;
